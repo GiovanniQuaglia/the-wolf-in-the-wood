@@ -1,5 +1,5 @@
 var levelChars = {
-    "0": "level0", "1": "level1",
+    "0": "level00", "1": "level01",
     ".": "empty", "#": "wall",
     "@": Player, "B": "bird",
     "T": "t0", "Y": "t1", "U": "t2",

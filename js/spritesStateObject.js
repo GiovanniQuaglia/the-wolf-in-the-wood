@@ -84,34 +84,73 @@ const trees = {
 
 // LEVELS SPRITES
 
-let level00Img = document.createElement("img");
-level00Img.src = "sprites/levels/Level00.png";
+let levelImg00 = document.createElement("img");
+levelImg00.src = "sprites/levels/Level00.png";
 
-let level01Img = document.createElement("img");
-level01Img.src = "sprites/levels/Level01.png";
+let levelImg01 = document.createElement("img");
+levelImg01.src = "sprites/levels/Level01.png";
 
-let level02Img = document.createElement("img");
-level02Img.src = "sprites/levels/Level02.png";
+let levelImg02 = document.createElement("img");
+levelImg02.src = "sprites/levels/Level02.png";
 
-const level00 = {
-  level: level00Img,
-  width: 420,
-  height: 420,
-  levelCoordX: 0,
-  levelCoordY: 0,
-  levelPosX: 0,
-  levelPosY: 0
+const levels = {
+  level00: {
+    level: levelImg00,
+    width: 420,
+    height: 420,
+    levelCoordX: 0,
+    levelCoordY: 0,
+    levelPosX: 0,
+    levelPosY: 0
+  },
+  level01: {
+    level: levelImg01,
+    width: 420,
+    height: 420,
+    levelCoordX: 0,
+    levelCoordY: 0,
+    levelPosX: 0,
+    levelPosY: 0
+  },
+  level02: {
+    level: levelImg02,
+    width: 420,
+    height: 420,
+    levelCoordX: 0,
+    levelCoordY: 0,
+    levelPosX: 0,
+    levelPosY: 0
+  }
 }
+// const level00 = {
+//   level: levelImg00,
+//   width: 420,
+//   height: 420,
+//   levelCoordX: 0,
+//   levelCoordY: 0,
+//   levelPosX: 0,
+//   levelPosY: 0
+// }
 
-const level01 = {
-  level: level01Img,
-  width: 420,
-  height: 420,
-  levelCoordX: 0,
-  levelCoordY: 0,
-  levelPosX: 0,
-  levelPosY: 0
-}
+// const level01 = {
+//   level: levelImg01,
+//   width: 420,
+//   height: 420,
+//   levelCoordX: 0,
+//   levelCoordY: 0,
+//   levelPosX: 0,
+//   levelPosY: 0
+// }
+
+// const level02 = {
+//   level: levelImg02,
+//   width: 420,
+//   height: 420,
+//   levelCoordX: 0,
+//   levelCoordY: 0,
+//   levelPosX: 0,
+//   levelPosY: 0
+// }
 
 // THE BIRD
 
