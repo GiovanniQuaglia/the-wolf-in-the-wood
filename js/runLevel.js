@@ -56,7 +56,7 @@ async function runGame(plans, Display) {
 }
 
 window.onload = function() {
-  // runTitle()
-  runGame(GAME_LEVELS, CanvasDisplay);
+  runTitle()
+  // runGame(GAME_LEVELS, CanvasDisplay);
 };
 

@@ -74,90 +74,20 @@ canvas {
     cursor: pointer;
 }
 
-/* #canvasBelow > canvas {
-    background-image: url(../sprites/fondalePoligonale.png);
-} */
-
-
-
-/* 
-#character {
-    position: absolute;
+#instructions {
+    font-size: 18px;
+    font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    padding-top: 120px;
     margin: auto;
-    height: 30px;
-    width: 30px;
-    background-color: salmon;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-} */
-
-/* #obstacle {
-    position: relative;
-    margin: auto;
-    height: 30px;
-    width: 30px;
-    background-color: olive;
-    top: 0;
-    right: 100;
-    left: 0;
-    bottom: 0;
-} */
-/* 
-#characterCanvas {
-    position: absolute;
-    height: 420px;
     width: 420px;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-} */
-
-/* #sfondo{
-    background-image: url(../sprites/mappapiccola.png);
-    height: 420px;
-    width: 420px;
-    margin: auto;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    table-layout: fixed;
-    border-spacing: 0;
-} */
-
-/* .background {
-    position: relative;
-    margin-left: 100px;
-    table-layout: fixed;
-    border-spacing: 0;
+    height: 380px;
+    opacity: 1;
+    transition: 0.8s opacity;
 }
-
-.background td { padding: 0;
-} */
-/* 
-.lava { background: rgb(255, 100, 100);
-}
-
-.wall { background: white;
-}
-
-.actor  { position: absolute;            }
-.coin   { background: rgb(241, 229, 89); }
-.player { background: rgb(64, 64, 64);   }
-
-.lost .player {
-    background: rgb(160, 64, 64);
-  }
-.won .player {
-box-shadow: -4px -7px 8px white, 4px -7px 8px white;
-} */
-
-/* .game {
-    overflow: hidden;
-    max-width: 420px;
-    max-height: 420px;
-    position: relative;
-  } */

@@ -21,7 +21,24 @@ function displayStartButton(){
     startButton.addEventListener('click', function(e){
         e.preventDefault;
         titleWrapper.remove()
-        runGame(GAME_LEVELS, CanvasDisplay);
+        displayInstructions();
     })
-
 }
+
+function displayInstructions(){
+    const instructions = document.createElement('div');
+    instructions.setAttribute('id', 'instructions');
+    instructions.innerHTML = 'Explore the forest with the arrow keys';
+    document.body.appendChild(instructions);
+    setTimeout(fadeout, 3000);
+    setTimeout(
+        function(){
+            instructions.remove();
+            runGame(GAME_LEVELS, CanvasDisplay);
+        },4500
+    )
+}
+
+function fadeout() {
+    document.getElementById('instructions').style.opacity = '0';
+  }
