@@ -40,7 +40,17 @@ State.prototype.update = function(time, keys, currentLevel) {
     if (this.level.touches(player.pos, player.size, "bird")) {
         eatBird();
     }
-   
+
+    if (this.level.touches(player.pos, player.size, "hill")) {
+        playerXSpeed = 5;
+        playerYSpeed = 5;
+    }
+
+    if (this.level.touches(player.pos, player.size, "empty")) {
+        playerXSpeed = 8;
+        playerYSpeed = 8;
+    }
+
     for (let actor of actors) {
         if (actor != player && overlap(actor, player)) {
             newState = actor.collide(newState);

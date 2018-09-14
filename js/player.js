@@ -13,8 +13,8 @@ var Player = class Player {
    
 Player.prototype.size = new Vec(1, 1);
 
-const playerXSpeed = 7;
-const playerYSpeed = 7;
+let playerXSpeed = 8;
+let playerYSpeed = 8;
 
 Player.prototype.update = function(time, state, keys) {
     let xSpeed = 0;

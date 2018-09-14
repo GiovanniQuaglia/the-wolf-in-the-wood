@@ -1,9 +1,10 @@
 var levelChars = {
-    "0": "level00", "1": "level01",
+    "0": "level00", "1": "level01", "2": "level02",
     ".": "empty", "#": "wall",
     "@": Player, "B": "bird",
     "T": "t0", "Y": "t1", "U": "t2",
-    "N": "next", "P": "previous", "x": "nextPosition", "y": "previousPosition"
+    "N": "next", "P": "previous", "x": "nextPosition", "y": "previousPosition",
+    "H": "hill",
 };
 
 var Level = class Level {
