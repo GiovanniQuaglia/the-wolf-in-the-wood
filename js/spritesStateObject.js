@@ -3,12 +3,12 @@
 const wolfImage = new Image();
 wolfImage.src = 'sprites/wolf/wolfNew_68x84.png';
 
-const wolfSprites = {
-    playerXOverlap: 6,
-    playerYOverlap: 16,
-    playerXStatic: 0,
-    playerYStatic: 0
-}
+const wolf = {
+    avatar: wolfImage,
+    XOverlap: 6,
+    YOverlap: 16,
+    YStatic: 0
+};
 
 // COLLISIONS SPRITES
 
@@ -46,7 +46,7 @@ const trees = {
     downHeight: 15,
     downCoordX: 0,
     downCoordY: 0,
-    adjust: -1
+    adjust: -1,
   },
   1: {
     treeUp: treeSpritesUp02,
@@ -61,7 +61,7 @@ const trees = {
     downHeight: 16,
     downCoordX: 0,
     downCoordY: 0,
-    adjust: 0
+    adjust: 0,
   },
   2: {
     treeUp: treeSpritesUp04,
@@ -76,7 +76,7 @@ const trees = {
     downHeight: 17,
     downCoordX: 0,
     downCoordY: 0,
-    adjust: 2
+    adjust: 2,
   }
 }
 
@@ -101,7 +101,7 @@ const levels = {
     levelCoordX: 0,
     levelCoordY: 0,
     levelPosX: 0,
-    levelPosY: 0
+    levelPosY: 0,
   },
   level01: {
     level: levelImg01,
@@ -110,7 +110,7 @@ const levels = {
     levelCoordX: 0,
     levelCoordY: 0,
     levelPosX: 0,
-    levelPosY: 0
+    levelPosY: 0,
   },
   level02: {
     level: levelImg02,
@@ -119,76 +119,47 @@ const levels = {
     levelCoordX: 0,
     levelCoordY: 0,
     levelPosX: 0,
-    levelPosY: 0
+    levelPosY: 0,
   }
 }
-// const level00 = {
-//   level: levelImg00,
-//   width: 420,
-//   height: 420,
-//   levelCoordX: 0,
-//   levelCoordY: 0,
-//   levelPosX: 0,
-//   levelPosY: 0
-// }
-
-// const level01 = {
-//   level: levelImg01,
-//   width: 420,
-//   height: 420,
-//   levelCoordX: 0,
-//   levelCoordY: 0,
-//   levelPosX: 0,
-//   levelPosY: 0
-// }
-
-// const level02 = {
-//   level: levelImg02,
-//   width: 420,
-//   height: 420,
-//   levelCoordX: 0,
-//   levelCoordY: 0,
-//   levelPosX: 0,
-//   levelPosY: 0
-// }
 
 // THE BIRD
 
 let theBird = document.createElement("img");
 theBird.src = "sprites/bird/bird.png";
 
-const bird = {
-  img: theBird,
-  width: 12,
-  height: 12,
-  levelCoordX: 0,
-  levelCoordY: 0,
-  levelPosX: 6,
-  levelPosY: 6
-}
+let theEatDeadBird = document.createElement("img");
+theEatDeadBird.src = "sprites/bird/birdEat.png";
 
 let theDeadBird = document.createElement("img");
 theDeadBird.src = "sprites/bird/deadBird.png";
 
-const deadBird = {
-  img: theDeadBird,
-  width: 12,
-  height: 12,
-  levelCoordX: 0,
-  levelCoordY: 0,
-  levelPosX: 6,
-  levelPosY: 6
-}
-
-let theEatDeadBird = document.createElement("img");
-theEatDeadBird.src = "sprites/bird/birdEat.png";
-
-const eatingBird = {
-  img: theEatDeadBird,
-  width: 12,
-  height: 12,
-  levelCoordX: 0,
-  levelCoordY: 0,
-  levelPosX: 6,
-  levelPosY: 6
+const birdObject = {
+  standard: {
+    img: theBird,
+    width: 12,
+    height: 12,
+    levelCoordX: 0,
+    levelCoordY: 0,
+    levelPosX: 6,
+    levelPosY: 6,
+  },
+  eating: {
+    img: theEatDeadBird,
+    width: 12,
+    height: 12,
+    levelCoordX: 0,
+    levelCoordY: 0,
+    levelPosX: 6,
+    levelPosY: 6,
+  },
+  dead: {
+    img: theDeadBird,
+    width: 12,
+    height: 12,
+    levelCoordX: 0,
+    levelCoordY: 0,
+    levelPosX: 6,
+    levelPosY: 6,
+  },
 }

@@ -13,7 +13,6 @@ class CanvasDisplay {
       height: this.canvas.height / scale,
     };
   }
-
   clear() {
     this.canvas.remove();
   }
@@ -55,37 +54,29 @@ CanvasDisplay.prototype.drawActors = function(actors) {
 };
 
 CanvasDisplay.prototype.drawPlayer = function(player, x, y, width, height){
-  let wolfYStatic = 0;
-  const wolfXOverlap = wolfSprites.playerXOverlap;
-  const wolfYOverlap = wolfSprites.playerYOverlap;
-  width += wolfXOverlap * 2;
-  height += wolfYOverlap;
-  x -= wolfXOverlap;
-  y -= wolfYOverlap;
-  x = Math.floor(x);
-  y = Math.floor(y);
-
+  width += wolf.XOverlap * 2;
+  height += wolf.YOverlap;
+  x = Math.floor(x -= wolf.XOverlap);
+  y = Math.floor(y -= wolf.YOverlap);
   let Line = 57;
   let tile = 8;
   if (player.speed.y !== 0) {
     tile = Math.floor(Date.now() / 60) % 3;
     if (player.speed.y > 0) { Line = 0; }
     if (player.speed.y < 0) { Line = 21; }
-    wolfYStatic = Line;
+    wolf.YStatic = Line;
   } else if (player.speed.x !== 0) {
     tile = Math.floor(Date.now() / 60) % 3;
     if (player.speed.x > 0) { Line = 63; }
     if (player.speed.x < 0) { Line = 42; }
-    wolfYStatic = Line;
+    wolf.YStatic = Line;
   }
-  // this.cx.save();
   const tileX = tile * width;
   if (player.speed.x === 0 && player.speed.y === 0) {
-    this.cx.drawImage(wolfImage, 0, wolfYStatic, width, height, x, y, width, height);
+    this.cx.drawImage(wolf.avatar, 0, wolf.YStatic, width, height, x, y, width, height);
     return;
   }
-  this.cx.drawImage(wolfImage, tileX, Line, width, height, x, y, width, height);
-  // this.cx.restore();
+  this.cx.drawImage(wolf.avatar, tileX, Line, width, height, x, y, width, height);
 };
 
 // FUNZIONE PER DISEGNARE LE COLLISIONI
@@ -212,47 +203,35 @@ CanvasDisplay.prototype.drawBird = function(level) {
   for (let y = 0; y < yEnd; y += 1) {
     for (let x = 0; x < xEnd; x += 1) {
       const tile = level.rows[y][x];
-      let screenX;
-      let screenY;
-      let tileX;
-      let tileY;
-      let image;
       if (tile === 'bird') {
+        const alive = birdObject.standard;
+        const eating = birdObject.eating;
+        const dead = birdObject.dead;
+        const clear = true;
+        const timeToEat = Math.floor(Date.now() / 60) % 40 === 0;
+        const displayThisBird = displayBird.bind(this)
         if (!birdAlive) {
-          image = deadBird.img;
-          tileX = deadBird.levelCoordX;
-          tileY = deadBird.levelCoordY;
-          width = deadBird.width;
-          height = deadBird.height;
-          screenX = x * scale;
-          screenY = y * scale;
-          this.cx.clearRect(screenX, screenY, width, height);
-          this.cx.drawImage(image, tileX, tileY, width, height, screenX, screenY, width, height);
+          displayThisBird(dead, x, y, clear);
           return;
         }
-        const d = Math.floor(Date.now() / 60);
-        const c = d % 40 === 0;
-        if (c) {
-          image = eatingBird.img;
-          tileX = eatingBird.levelCoordX;
-          tileY = eatingBird.levelCoordY;
-          width = eatingBird.width;
-          height = eatingBird.height;
-          screenX = x * scale;
-          screenY = y * scale;
-          this.cx.clearRect(screenX, screenY, width, height);
-          this.cx.drawImage(image, tileX, tileY, width, height, screenX, screenY, width, height);
+        if (timeToEat) {
+          displayThisBird(eating, x, y, clear);
           return;
         }
-        image = bird.img;
-        tileX = bird.levelCoordX;
-        tileY = bird.levelCoordY;
-        width = bird.width;
-        height = bird.height;
-        screenX = x * scale;
-        screenY = y * scale;
-        this.cx.drawImage(image, tileX, tileY, width, height, screenX, screenY, width, height);
+        displayThisBird(alive, x, y);
       }
     }
   }
 };
+
+const displayBird = function(bird, x, y, clear) {
+  let image = bird.img;
+  let tileX = bird.levelCoordX;
+  let tileY = bird.levelCoordY;
+  let width = bird.width;
+  let height = bird.height;
+  let screenX = x * scale;
+  let screenY = y * scale;
+  clear === true ? this.cx.clearRect(screenX, screenY, width, height) : null;
+  this.cx.drawImage(image, tileX, tileY, width, height, screenX, screenY, width, height);
+}
